@@ -25,9 +25,8 @@ import java.util.Arrays;
 import de.androidpit.colorthief.MMCQ.CMap;
 
 public class ColorThief {
-
-    private static final int DEFAULT_QUALITY = 10;
-    private static final boolean DEFAULT_IGNORE_WHITE = true;
+private static final int DEFAULT_QUALITY = 10;
+private static final boolean DEFAULT_IGNORE_WHITE = true;
 
     /**
      * Use the median cut algorithm to cluster similar colors and return the base color from the
@@ -38,14 +37,14 @@ public class ColorThief {
      *
      * @return the dominant color as RGB array
      */
-    public static int[] getColor(BufferedImage sourceImage) {
-        int[][] palette = getPalette(sourceImage, 5);
-        if (palette == null) {
-            return null;
-        }
-        int[] dominantColor = palette[0];
-        return dominantColor;
-    }
+public static int[] getColor(BufferedImage sourceImage) {
+int[][] palette = getPalette(sourceImage, 5);
+if (palette == null) {
+return null;
+}
+int[] dominantColor = palette[0];
+return dominantColor;
+}
 
     /**
      * Use the median cut algorithm to cluster similar colors and return the base color from the
@@ -64,14 +63,14 @@ public class ColorThief {
      * @throws IllegalArgumentException
      *             if quality is &lt; 1
      */
-    public static int[] getColor(BufferedImage sourceImage, int quality, boolean ignoreWhite) {
-        int[][] palette = getPalette(sourceImage, 5, quality, ignoreWhite);
-        if (palette == null) {
-            return null;
-        }
-        int[] dominantColor = palette[0];
-        return dominantColor;
-    }
+public static int[] getColor(BufferedImage sourceImage, int quality, boolean ignoreWhite) {
+int[][] palette = getPalette(sourceImage, 5, quality, ignoreWhite);
+if (palette == null) {
+return null;
+}
+int[] dominantColor = palette[0];
+return dominantColor;
+}
 
     /**
      * Use the median cut algorithm to cluster similar colors.
@@ -83,13 +82,13 @@ public class ColorThief {
      * 
      * @return the palette as array of RGB arrays
      */
-    public static int[][] getPalette(BufferedImage sourceImage, int colorCount) {
-        CMap cmap = getColorMap(sourceImage, colorCount);
-        if (cmap == null) {
-            return null;
-        }
-        return cmap.palette();
-    }
+public static int[][] getPalette(BufferedImage sourceImage, int colorCount) {
+CMap cmap = getColorMap(sourceImage, colorCount);
+if (cmap == null) {
+return null;
+}
+return cmap.palette();
+}
 
     /**
      * Use the median cut algorithm to cluster similar colors.
@@ -109,17 +108,17 @@ public class ColorThief {
      * @throws IllegalArgumentException
      *             if quality is &lt; 1
      */
-    public static int[][] getPalette(
-            BufferedImage sourceImage,
-            int colorCount,
-            int quality,
-            boolean ignoreWhite) {
-        CMap cmap = getColorMap(sourceImage, colorCount, quality, ignoreWhite);
-        if (cmap == null) {
-            return null;
-        }
-        return cmap.palette();
-    }
+public static int[][] getPalette(
+BufferedImage sourceImage,
+int colorCount,
+int quality,
+boolean ignoreWhite) {
+CMap cmap = getColorMap(sourceImage, colorCount, quality, ignoreWhite);
+if (cmap == null) {
+return null;
+}
+return cmap.palette();
+}
 
     /**
      * Use the median cut algorithm to cluster similar colors.
